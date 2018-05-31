@@ -1,6 +1,7 @@
 #ifndef GRAPHS4_DIGRAPH_H
 #define GRAPHS4_DIGRAPH_H
 
+#include <fstream>
 #include "AdjList.h"
 
 
@@ -14,7 +15,9 @@ public:
     void Print() const;
     void Draw() const;
 
+    unsigned SizeOfGraph() const;
     AdjList GetAdjList() const;
+    bool HasNeighbours(const int vertex) const;
 
 private:
     static void ValidateRandomGraph(const int numberOfVertices, const double probability);

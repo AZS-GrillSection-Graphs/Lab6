@@ -9,4 +9,4 @@ set(CMAKE_CXX_FLAGS_DEBUG "-g -Wall -Wextra")
 include_directories(include/)
 
 file(GLOB SOURCES "src/*.cpp")
-add_executable(${EXECUTABLE_NAME} ${SOURCES})
+add_executable(${EXECUTABLE_NAME} ${SOURCES} include/SimplePageRankNetwork.h include/StochasticPageRankNetwork.h src/SimplePageRankNetwork.cpp src/StochasticPageRankNetwork.cpp)

@@ -2,7 +2,6 @@
 #include <map>
 #include <vector>
 #include <sstream>
-#include <fstream>
 
 #include "GraphException.h"
 #include "DiGraph.h"
@@ -151,4 +150,19 @@ void DiGraph::Draw() const
 
     std::string command = "python3 DiGraphVisualization.py IncidenceMatrix.txt";
     system(command.c_str());
+}
+
+unsigned DiGraph::SizeOfGraph() const
+{
+    return m_adjList->Size();
+}
+
+AdjList DiGraph::GetAdjList() const
+{
+    return *m_adjList;
+}
+
+bool DiGraph::HasNeighbours(const int vertex) const
+{
+    return (*m_adjList)[vertex].size() > 0;
 }

@@ -8,8 +8,8 @@
 class AdjList
 {
 public:
-    AdjList() = default;
-    ~AdjList() = default;
+    AdjList() {}
+    ~AdjList() {}
 
     explicit AdjList(const std::vector<std::vector<int>> adjList);
     static AdjList ConstructAdjListFromAdjMatrix(std::vector<std::vector<int>> adjMatrix);
@@ -23,7 +23,7 @@ public:
     std::vector<int> operator[](const int index) const;
 
 private:
-    std::vector<std::vector<int>>m_adjList;
+    std::vector<std::vector<int>> m_adjList = std::vector<std::vector<int>>(1, std::vector<int>(1, 0));
 };
 
 #endif //GRAPHS4_ADJLIST_H

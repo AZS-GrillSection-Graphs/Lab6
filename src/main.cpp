@@ -1,5 +1,7 @@
 #include <iostream>
 #include "DiGraph.h"
+#include "SimplePageRankNetwork.h"
+#include "StochasticPageRankNetwork.h"
 
 
 void ShowMenuOptions()
@@ -11,6 +13,8 @@ void ShowMenuOptions()
 
 int main()
 {
+    srand(static_cast<unsigned int>(time(nullptr)));
+
     DiGraph * graph = nullptr;
 
     std::cout << "Welcome in PageRank simulation. Please choose an action: " << std::endl;
@@ -43,6 +47,11 @@ int main()
                 std::cout << "Not known action.";
                 break;
         }
+
+        ////////// Task 1 a //////////////////
+        SimplePageRankNetwork pageRankA(graph, 0.15);
+        pageRankA.CalculatePageRank(10000);
+
 
         delete graph;
 
