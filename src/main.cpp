@@ -6,9 +6,11 @@
 
 void ShowMenuOptions()
 {
+    std::cout << std::endl;
     std::cout << "1 :   Load Graph from file" << std::endl;
     std::cout << "2 :   Draw a random Graph" << std::endl;
     std::cout << "0 :   Exit" << std::endl;
+    std::cout << std::endl;
 }
 
 int main()
@@ -48,12 +50,16 @@ int main()
                 break;
         }
 
-        ////////// Task 1 a //////////////////
-        SimplePageRankNetwork pageRankA(graph, 0.15);
-        pageRankA.CalculatePageRank(10000);
+        if(graph != nullptr)
+        {
+            PageRankNetwork * pageRankA = new SimplePageRankNetwork(graph, 0.15);
+            pageRankA->CalculatePageRank(10000);
 
 
-        delete graph;
+            delete pageRankA;
+            delete graph;
+            graph = nullptr;
+        }
 
         ShowMenuOptions();
         std::cin >> option;

@@ -2,6 +2,7 @@
 #define GRAPHS4_ADJLIST_H
 
 #include <vector>
+#include <iostream>
 #include "IncMatrix.h"
 
 
@@ -23,7 +24,7 @@ public:
     std::vector<int> operator[](const int index) const;
 
 private:
-    std::vector<std::vector<int>> m_adjList = std::vector<std::vector<int>>(1, std::vector<int>(1, 0));
+    std::vector<std::vector<int>> m_adjList;
 };
 
 #endif //GRAPHS4_ADJLIST_H

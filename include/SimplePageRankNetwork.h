@@ -2,24 +2,18 @@
 #define GRAPHS6_SIMPLEPAGERANKNETWORK_H
 
 #include "DiGraph.h"
+#include "PageRankNetwork.h"
 
 
-class SimplePageRankNetwork
+class SimplePageRankNetwork final : public PageRankNetwork
 {
 public:
     SimplePageRankNetwork(DiGraph * graph, const double d);
-    void CalculatePageRank(const unsigned numberOfIterations);
+    void CalculatePageRank(const unsigned numberOfIterations) override;
 
 private:
-    int iRand(const int min, const int max);
-    int &GetRandomNeighbour(int index) const;
+    int GetRandomNeighbour(int index) const;
     int Teleport() const;
-    void PrintProbability() const;
-
-
-    DiGraph *& m_graph;
-    std::vector<double> m_numOfVisits;
-    const double m_probability;
 };
 
 #endif //GRAPHS6_SIMPLEPAGERANKNETWORK_H
