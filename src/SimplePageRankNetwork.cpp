@@ -14,11 +14,11 @@ void SimplePageRankNetwork::CalculatePageRank(const unsigned numberOfIterations)
 
     for(unsigned i = 0; i < numberOfIterations; ++i)
     {
-        m_numOfVisits[index] += 1;
+        m_probability[index] += 1;
 
         int nextMove = iRand(1, 100);
 
-        if(m_graph->HasNeighbours(index) && nextMove > static_cast<int>(m_probability * 100))
+        if(m_graph->HasNeighbours(index) && nextMove > static_cast<int>(m_d * 100))
         {
             index = GetRandomNeighbour(index);
         }
@@ -28,12 +28,11 @@ void SimplePageRankNetwork::CalculatePageRank(const unsigned numberOfIterations)
         }
     }
 
-    for(auto & item: m_numOfVisits)
+    for(auto & item: m_probability)
     {
         item /= numberOfIterations;
     }
 
-    PrintProbability();
     PrintVertexesHierarchy();
 }
 

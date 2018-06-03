@@ -16,8 +16,8 @@ protected:
     void PrintVertexesHierarchy() const;
 
     DiGraph * m_graph;
-    std::vector<double> m_numOfVisits;
-    const double m_probability;
+    std::vector<double> m_probability;
+    const double m_d;
 };
 
 #endif //GRAPHS6_PAGERANKNETWORK_H
