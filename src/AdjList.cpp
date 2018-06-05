@@ -71,3 +71,8 @@ std::vector<std::vector<int>> AdjList::GetAdjList() const
 {
     return m_adjList;
 }
+
+int AdjList::GetDegreeOfVertex(const int index) const
+{
+    return m_adjList[index].size();
+}

@@ -2,6 +2,7 @@
 #include "DiGraph.h"
 #include "SimplePageRankNetwork.h"
 #include "StochasticPageRankNetwork.h"
+#include "IterationPageRankNetwork.h"
 
 
 void ShowMenuOptions()
@@ -40,7 +41,7 @@ int main()
                 break;
 
             case 2:
-                graph = new DiGraph(5, 0.5);
+                graph = new DiGraph(5, 0.2);
                 graph->Print();
                 graph->Draw();
                 break;
@@ -50,13 +51,18 @@ int main()
                 break;
         }
 
+        IterationPageRankNetwork iter(graph, 0.15);
+
         if(graph != nullptr)
         {
             PageRankNetwork * pageRankA = new SimplePageRankNetwork(graph, 0.15);
             pageRankA->CalculatePageRank(10000);
 
+            IterationPageRankNetwork * pageRankB = new IterationPageRankNetwork(graph, 0.15);
+            pageRankB->CalculatePageRank(10000);
 
             delete pageRankA;
+            delete pageRankB;
             delete graph;
             graph = nullptr;
         }

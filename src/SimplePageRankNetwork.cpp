@@ -33,6 +33,8 @@ void SimplePageRankNetwork::CalculatePageRank(const unsigned numberOfIterations)
         item /= numberOfIterations;
     }
 
+    std::cout << "Simple PageRank method:" << std::endl;
+
     PrintVertexesHierarchy();
 }
 

@@ -43,4 +43,6 @@ void PageRankNetwork::PrintVertexesHierarchy() const
     {
         std::cout << "Vertex nr: " << hierarchy[i].first << " PageRank: " << hierarchy[i].second << std::endl;
     }
+
+    std::cout << std::endl;
 }
